@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <title>iss tracker</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('space.png'); /* Replace 'background.jpg' with your image file */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 100vh;
+            overflow: hidden;
+            font-family: 'Poppins';font-size: 22px;
+            color: aliceblue;
+            transition: all 1s ease-in-out; /* Transition for zoom effect */
+        }
+
+        #start-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            text-shadow: seashell;
+            transform: translate(-50%, -50%);
+            border: none;
+            opacity: 0.75; /* Change this to 0.75 for 75% opacity */
+            cursor: pointer;
+            height: auto;
+            width: 120%;
+            transition: all 1s ease-in-out 0.3s;
+        }
+
+        #start-button:hover {
+            transform: translate(-50%, -50%) scale(1.2); /* Zoom in by 20% */
+            opacity: 1; /* Change this to 1 for full opacity */
+        }
+
+        /* ... (your existing styles) ... */
+        .navigation {
+            font-family: 'Poppins';font-size: 22px;
+            font-size: 20px;
+            display: flex;
+            
+            margin-top:  8px;
+            
+            align-items: center;
+           /* justify-content: center;*/
+        }
+
+        li {
+            list-style: none;
+            padding: 20px 23px;
+        }
+        nav ul {
+            margin-left: 18px;
+        }
+        .item {
+            text-decoration: none;
+            color: rgb(249, 242, 242);
+            padding: 10px 20px ;
+            border-radius: 30px;
+
+        }
+        .item:hover{
+            color: rgb(240, 230, 230);
+            background-color: rgb(11, 4, 53);
+        }
+        .item:visited{
+            background-color: yellow;
+            background-size: auto;
+            
+        }
+        .item:active{
+            background-color:rgb(6, 219, 223);
+        }
+
+        .navbar {
+            font-family: 'Poppins';font-size: 22px;
+            font-size: 20px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(8, 0, 0, 0.589); /* Add a background color with some transparency */
+            z-index: 2; /* Set a higher z-index to bring it to the front */
+        }
+
+        .navbar li {
+            float: left;
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <img id="start-button" src="spaceship1.png" alt="" srcset="">
+    <nav class="navbar">
+        <ul class="navigation">
+            <a href="navbar-info/about.html"> <li class="item">ABOUT</li></a>
+            <a href="navbar-info/iss-info.html"> <li class="item">ISS INFO</li></a>
+            <a href="navbar-info/iss-achivement.html"> <li class="item">ISS ACHIVEMENTS</li></a>
+            <a href="navbar-info/iss-history.html"> <li class="item">ISS HISTORY</li></a>
+            <a href="navbar-info/VR-data/VR.html"> <li class="item">VR SPACE MISSION</li></a>
+            <a href="navbar-info/nova.html"> <li class="item">NOVA</li></a>
+            <a href="navbar-info/contact-us/contact.html"> <li class="item">FEEDBACK</li></a>
+        </ul>
+    </nav>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const startButton = document.getElementById("start-button");
+
+            startButton.addEventListener("click", function () {
+                // Change the opacity of the button to 0
+                startButton.style.opacity = '0';
+
+                // Zoom in the entire webpage
+                document.body.style.transform = 'scale(1.2)';
+                document.body.style.transition = 'transform 1s ease-in-out';
+                
+                // Change the background to the video
+                document.body.style.backgroundImage = 'none'; // Remove the background image
+                document.body.style.backgroundColor = 'black'; // Set background color to black
+                const videoElement = document.createElement("video");
+                videoElement.src = 'video.mp4'; // Replace 'video.mp4' with your video file
+                videoElement.autoplay = true;
+                videoElement.loop = true;
+                videoElement.muted = false; // Unmute the video
+                document.body.appendChild(videoElement);
+
+                // Redirect after 9 seconds
+                setTimeout(function () {
+                    window.location.href = 'front.html'; // Replace 'redirect.html' with your desired destination
+                }, 9000); // 9 seconds
+            });
+        });
+    </script>
+</body>
+</html>

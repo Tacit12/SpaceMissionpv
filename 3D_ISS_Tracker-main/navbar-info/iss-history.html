@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('space.png');
+            background-size: cover;
+            background-position: left;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: aliceblue;
+            text-align: left;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            body {
+                font-size: 16px;
+            }
+        }
+
+        .info-container {
+            text-align: left;
+            background-color: rgba(12, 2, 53, 0.523);
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            margin-top: 60px;
+        }
+
+        /* Your previous navbar styles */
+        .navbar {
+            font-family: 'Poppins', sans-serif;
+            font-size: 22px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(8, 0, 0, 0.589);
+            z-index: 2;
+        }
+
+        .navbar li {
+            float: right;
+            list-style: none;
+            margin-right: 20px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .navigation {
+            font-family: 'Poppins', sans-serif;
+            font-size: 22px;
+            font-size: 20px;
+            display: flex;
+            margin-top: 8px;
+            align-items: center;
+        }
+
+        .item {
+            text-decoration: none;
+            color: rgb(249, 242, 242);
+            padding: 10px 20px;
+            border-radius: 30px;
+        }
+
+        .item:hover {
+            color: rgb(240, 230, 230);
+            background-color: rgb(11, 4, 53);
+        }
+
+        .item:visited {
+            background-color: yellow;
+            background-size: auto;
+        }
+
+        .item:active {
+            background-color: rgb(6, 219, 223);
+        }
+
+        
+    </style>
+    <title>ISS Tracker</title>
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="navigation">
+            <a href="about.html"><li class="item">ABOUT</li></a>
+            <a href="iss-info.html"><li class="item">ISS INFO</li></a>
+            <a href="iss-achivement.html"><li class="item">ISS ACHIEVEMENTS</li></a>
+            <a href="iss-history.html"><li class="item">ISS HISTORY</li></a>
+            <!-- <a href="/3D_ISS_Tracker-main/index.html"><li class="item">GO TO LAUNCH</li></a> -->
+        </ul>
+    </nav>
+    <div class="info-container">
+        <h1>HISTORY OF ISS (INTERNATIONAL SPACE STATION)</h1>
+        <div class="isshistory">
+            <ul>
+                <li><strong>Origins (1980s):</strong> The concept of a space station in low Earth orbit was discussed as early as the 1980s.</li>
+                <li><strong>Space Station Freedom (1984-1998):</strong> The United States proposed "Space Station Freedom" in 1984, but it faced delays due to cost concerns.</li>
+                <li><strong>Mir Space Station (1986-2001):</strong> The Soviet Union launched the Mir space station in 1986, demonstrating long-term human presence in space.</li>
+                <li><strong>International Collaboration (1998):</strong> In 1998, the U.S., Russia, Canada, Japan, and ESA signed agreements to collaborate on the ISS.</li>
+                <li><strong>Assembly Begins (1998-2001):</strong> Modules like Zarya and Unity were launched in 1998, marking the start of ISS assembly.</li>
+                <li><strong>Continuous Crewed Presence (2000):</strong> In 2000, Expedition 1 began, achieving the ISS's first continuous crewed presence.</li>
+                <li><strong>International Cooperation:</strong> The ISS involves space agencies from the U.S., Russia, Canada, Japan, and Europe through ESA.</li>
+                <li><strong>Scientific Research:</strong> The ISS serves as a platform for scientific research in microgravity.</li>
+                <li><strong>Expansion and Maintenance:</strong> New modules and equipment have been added over the years, with regular maintenance.</li>
+                <li><strong>Future Exploration:</strong> The ISS prepares for future missions to the Moon and Mars, testing technologies for deep space.</li>
+                <li><strong>International Commitment:</strong> Partners plan to keep the ISS operational until at least 2030.</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

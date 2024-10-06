@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <style>
+        body {
+          
+            margin: 0;
+            padding: 0;
+            background-image: url('space.png'); /* Add your space background image here */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: aliceblue;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            body {
+                font-size: 16px;
+            }
+        }
+
+        .info-container {
+            text-align: center;
+            background-color: rgba(12, 2, 53, 0.523);
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            margin-top: 60px;
+           
+        }
+
+        /* Your previous navbar styles */
+        .navbar {
+            font-family: 'Poppins';font-size: 22px;
+            font-size: 20px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 2;
+        }
+
+        .navbar li {
+            float: left;
+            list-style: none;
+            margin-right: 20px;
+            color: white;
+            cursor: pointer;
+        }
+        .navigation {
+            font-family: 'Poppins';font-size: 22px;
+            font-size: 20px;
+            display: flex;
+            
+            margin-top:  8px;
+            
+            align-items: center;
+           /* justify-content: center;*/
+        }
+
+        .item {
+            text-decoration: none;
+            color: rgb(249, 242, 242);
+            padding: 10px 20px ;
+            border-radius: 30px;
+
+        }
+        .item:hover{
+            color: rgb(240, 230, 230);
+            background-color: rgb(11, 4, 53);
+        }
+        .item:visited{
+            background-color: yellow;
+            background-size: auto;
+            
+        }
+        .item:active{
+            background-color:rgb(6, 219, 223);
+        }
+        .navbar {
+            font-family: 'Poppins';font-size: 22px;
+            font-size: 20px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(8, 0, 0, 0.589); /* Add a background color with some transparency */
+            z-index: 2; /* Set a higher z-index to bring it to the front */
+        }
+
+        .navbar li {
+            float: left;
+            list-style: none;
+        }
+    </style>
+    <title>ISS Tracker</title>
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="navigation">
+            <a href="about.html"><li class="item">ABOUT</li></a>
+            <a href="iss-info.html"><li class="item">ISS INFO</li></a>
+            <a href="iss-achivement.html"><li class="item">ISS ACHIEVEMENTS</li></a>
+            <a href="iss-history.html"><li class="item">ISS HISTORY</li></a>
+            <!-- <a href="/3D_ISS_Tracker-main/index.html"><li class="item">GO TO LAUNCH</li></a> -->
+        </ul>
+    </nav>
+    <div class="info-container">
+        <h1>International Space Station Tracker</h1>
+        <div id="astronauts-info"></div>
+        <div id="location-info"></div>
+    </div>
+    <script>
+        async function updateISSData() {
+            try {
+                const astronautsInfo = document.getElementById('astronauts-info');
+                const locationInfo = document.getElementById('location-info');
+
+                const astronautsResponse = await fetch('http://api.open-notify.org/astros.json');
+                const astronautsData = await astronautsResponse.json();
+
+                const locationResponse = await fetch('http://api.open-notify.org/iss-now.json');
+                const locationData = await locationResponse.json();
+                const location = locationData.iss_position;
+
+                astronautsInfo.innerHTML = `<h2>Astronauts on ISS</h2>`;
+                astronautsData.people.forEach(person => {
+                    astronautsInfo.innerHTML += `<p>${person.name} - on board</p>`;
+                });
+
+                locationInfo.innerHTML = `<h2>ISS Current Location</h2>`;
+                locationInfo.innerHTML += `<p>Latitude: ${location.latitude}</p>`;
+                locationInfo.innerHTML += `<p>Longitude: ${location.longitude}</p>`;
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+
+        setInterval(updateISSData, 5000);
+        updateISSData();
+    </script>
+</body>
+</html>

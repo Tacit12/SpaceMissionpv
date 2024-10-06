@@ -1,0 +1,121 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: poppins;
+background: none;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: poppins;
+    /* Remove black background: */
+    background: none;
+  }
+  
+  .video-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Ensure content visibility over video: */
+  .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    text-align: center;
+    color: #00eeff; /* Adjust for better contrast if needed */
+    background: rgba(0, 0, 0, 0.5); /* Adjust opacity for readability */
+    text-shadow: 2px 2px 4px rgba(202, 221, 231, 0.5);
+  }
+
+/* Style the heading */
+.content h1 {
+    font-size: 25px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    animation: glowing 1.5s infinite;
+    color: #1ca3c5; /* Change glowing color */
+}
+
+/* Styles for the VR buttons */
+.vr-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem; /* Adjusted margin to move buttons down */
+}
+
+.vr-button {
+    font-size: 15px;
+    padding: 10px 20px; /* Adjusted padding for smaller screens */
+    margin: 5px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    animation: glowing 1.5s infinite;
+}
+
+.centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.vr-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+}
+
+/* Glowing effect on hover */
+@keyframes glowing {
+    0% {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    50% {
+        text-shadow: 4px 4px 8px rgba(6, 73, 73, 0.7);
+    }
+    100% {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+}
+
+/* Responsive styles for mobile devices */
+@media screen and (max-width: 768px) {
+    /* Overall font size reduction for better readability */
+    body {
+        font-size: 16px; /* Adjust as needed */
+    }
+
+    /* Further content optimization for smaller screens */
+    .content {
+        padding: 10px;
+        font-size: 18px; /* Adjust as needed */
+    }
+
+    /* Button adjustments */
+    .vr-buttons {
+        flex-direction: column; /* Stack buttons vertically */
+        margin-top: 1rem;
+    }
+
+    .vr-button {
+        margin-bottom: 20px; /* Add spacing between buttons */
+    }
+}
